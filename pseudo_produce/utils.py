@@ -33,7 +33,7 @@ class ImageReader(Dataset):
 
     def __getitem__(self, index):
         label = self.labels[index]
-        imageName = self.imgs[index]
+        imageName = self.imgs[index].inplace('*','_')
 
         # img = cv2.imdecode(np.fromfile('/home/kmyh/libin/dataset/pet_biometric_challenge_2022/train+test/images/'+imageName, dtype=np.uint8), 1)
         img = cv2.imdecode(np.fromfile('../data/train/images/'+imageName, dtype=np.uint8), 1)
